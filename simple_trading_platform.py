@@ -394,7 +394,7 @@ class SimpleTradingPlatform:
 def main():
     """Main entry point"""
     print("=" * 60)
-    print("🚀 Multi-Strategy Trading Platform")
+    print(" Multi-Strategy Trading Platform")
     print("=" * 60)
     
     platform = SimpleTradingPlatform()
