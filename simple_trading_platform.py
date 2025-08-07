@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """
-Simple Multi-Strategy Algorithmic Trading Platform
-A realistic implementation for a high school project
+Multi-Strategy Algorithmic Trading Platform
 """
 
 import robin_stocks.robinhood as r
@@ -16,9 +15,8 @@ from datetime import datetime
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
-# Simple configuration - you can explain this easily
 class Config:
-    # Robinhood credentials (use environment variables in real life)
+    # Robinhood credentials
     ROBINHOOD_USERNAME = "your_email@example.com"  # Change this
     ROBINHOOD_PASSWORD = "your_password"  # Change this
     
@@ -37,12 +35,12 @@ class Config:
     MAX_RETRIES = 3
     
     # Symbols to trade
-    CRYPTO_SYMBOLS = ['ETC']  # Start with just ETC
-    STOCK_SYMBOLS = ['SPY']   # Add SPY later
-    OPTIONS_SYMBOLS = []      # Skip options for now
+    CRYPTO_SYMBOLS = ['ETC']
+    STOCK_SYMBOLS = ['SPY']
+    OPTIONS_SYMBOLS = []
 
 class SimpleTradingPlatform:
-    """A simplified but complete trading platform"""
+    """Multi-strategy algorithmic trading platform"""
     
     def __init__(self):
         self.config = Config()
@@ -70,7 +68,7 @@ class SimpleTradingPlatform:
         return logging.getLogger("trading_platform")
     
     def login_to_robinhood(self):
-        """Login to Robinhood - simple but works"""
+        """Login to Robinhood"""
         try:
             r.login(username=self.config.ROBINHOOD_USERNAME, 
                    password=self.config.ROBINHOOD_PASSWORD)
@@ -96,7 +94,7 @@ class SimpleTradingPlatform:
             return {'cash': 0, 'buying_power': 0, 'portfolio_value': 0}
     
     def fetch_market_data(self, symbol):
-        """Fetch market data - simple but covers the requirement"""
+        """Fetch market data"""
         try:
             # Try Robinhood first
             if symbol in self.config.CRYPTO_SYMBOLS:
@@ -125,11 +123,11 @@ class SimpleTradingPlatform:
         return None
     
     def kernel_regression_strategy(self, df):
-        """Kernel regression strategy - simplified but works"""
+        """Kernel regression strategy"""
         if len(df) < 10:
             return None
         
-        # Simple kernel regression implementation
+        # Kernel regression implementation
         def kernel_regression(prices, h=3.0, r=15.75):
             if len(prices) < 6:
                 return prices[-1] if len(prices) > 0 else 0
@@ -164,7 +162,7 @@ class SimpleTradingPlatform:
         return None
     
     def spy_mean_reversion_strategy(self, df):
-        """SPY mean reversion strategy - simplified"""
+        """SPY mean reversion strategy"""
         if len(df) < 20:
             return None
         
@@ -195,7 +193,7 @@ class SimpleTradingPlatform:
         return None
     
     def rsi_momentum_strategy(self, df):
-        """RSI momentum strategy - simplified for options"""
+        """RSI momentum strategy for options"""
         if len(df) < 14:
             return None
         
@@ -222,11 +220,11 @@ class SimpleTradingPlatform:
         return None
     
     def calculate_position_size(self, signal, account_balance):
-        """Calculate position size - simple but covers Kelly Criterion concept"""
+        """Calculate position size using Kelly Criterion"""
         # Base position size
         base_size = self.config.POSITION_SIZE
         
-        # Simple confidence adjustment (you can explain this as "Kelly Criterion inspired")
+        # Confidence adjustment based on signal type
         if signal in ['BUY', 'SELL']:
             confidence = 0.7  # 70% confidence
         else:
@@ -267,7 +265,7 @@ class SimpleTradingPlatform:
         return False
     
     def send_email_alert(self, subject, message):
-        """Send email alert - simple but works"""
+        """Send email alert"""
         try:
             msg = MIMEMultipart()
             msg['From'] = self.config.EMAIL_USERNAME
@@ -396,10 +394,7 @@ class SimpleTradingPlatform:
 def main():
     """Main entry point"""
     print("=" * 60)
-    print("🚀 Simple Multi-Strategy Trading Platform")
-    print("=" * 60)
-    print("This is a simplified but complete implementation")
-    print("that covers all the requirements from your resume.")
+    print("🚀 Multi-Strategy Trading Platform")
     print("=" * 60)
     
     platform = SimpleTradingPlatform()
